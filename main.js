@@ -1,6 +1,6 @@
 const pokemonList = document.getElementById("pokemon-list");
 const pokemonDetail = document.getElementById("pokemon-detail");
-const pokemonInfo = document.querySelector(".pokemon-info"); // Asegúrate de que sea .pokemon-info
+const pokemonInfo = document.querySelector(".pokemon-info");
 const backButton = document.getElementById("back-button");
 
 async function fetchPokemonData(pokemonId) {
@@ -18,25 +18,25 @@ function displayPokemon(pokemon) {
         <p>ID: ${pokemon.id}</p>
     `;
 
-    // Asignar la función correctamente al evento "click"
+
     pokemonCard.addEventListener("click", () => {
-        showPokemonDetail(pokemon);  // Se asegura de pasar el objeto `pokemon` a showPokemonDetail
+        showPokemonDetail(pokemon);  
     });
     
-    pokemonList.appendChild(pokemonCard); // Añadir el Pokémon a la lista
+    pokemonList.appendChild(pokemonCard); 
 }
 
 backButton.addEventListener("click", () => {
-    pokemonDetail.style.display = "none";  // Ocultar los detalles del Pokémon
-    pokemonList.style.display = "grid";    // Mostrar la lista de Pokémon
+    pokemonDetail.style.display = "none";  
+    pokemonList.style.display = "grid";  
 });
 
 function showPokemonDetail(pokemon) {
-    // Ocultar la lista de Pokémon y mostrar los detalles del Pokémon
+
     pokemonList.style.display = "none";  
     pokemonDetail.style.display = "block";
     
-    // Asegurarse de que se actualice el contenido del div .pokemon-info
+
     pokemonInfo.innerHTML = `
         <h2>${pokemon.name.toUpperCase()}</h2>
         <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
